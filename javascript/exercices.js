@@ -10,7 +10,13 @@ const anagrammes = (stringA, stringB) => {
    * anagrams('RAIL! SAFETY!', 'fairy tales') === true
    * anagrams('Hi there', 'Bye there') === false
    */
-
+  const regex = /([A-Za-z])\w+/g;
+  
+  const word1 = stringA.split("").sort().join("").toLowerCase().match((regex) || []).join("");
+  const word2 = stringB.split("").sort().join("").toLowerCase().match((regex) || []).join("");
+  
+  return word1 === word2;
+  
 };
 
 
@@ -32,6 +38,24 @@ class Stack {
  * s.pop(); // returns 2
  * s.peek(); // returns 1
  */
+  
+ constructor(){
+ this.tab = [];
+ }
+ 
+ push(value){
+   this.tab[this.tab.length] = value;
+ }
+ 
+ pop(){
+   const a = this.tab[this.tab.length-1];
+   this.tab.length = this.tab.length-1;
+   return a;
+ }
+ 
+ peek(){
+   return this.tab[this.tab.length-1];
+ }
 };
 
 
@@ -49,7 +73,22 @@ const fizzBuzz = (n) => {
  * console.log(4)
  * console.log('buzz')
  */
-
+for(let i=1; i<=n; i++){
+  
+  if (i % 3 == 0 & i % 5 == 0){
+    console.log("fizzbuzz");
+  }
+  else if(i % 3 == 0){
+    console.log("fizz");
+  } 
+  else if(i % 5 == 0){
+    console.log("buzz");
+  }
+  else {
+    console.log(i);
+  }
+  
+}
 };
 
 const spirale = (n) => {
@@ -70,7 +109,43 @@ const spirale = (n) => {
  *              [11, 16, 15, 6],
  *              [10,  9,  8, 7]]
  */
+  
+let result = new Array(n).fill().map(() => new Array(n).fill('')); // create empty n x n array
+let counter = 1;
+let startCol = 0;
+let endCol = n - 1;
+let startRow = 0;
+let endRow = n - 1;
+while (startCol <= endCol && startRow <= endRow) {
+    for (let i = startCol; i <= endCol; i++) {
+        result[startRow][i] = counter;
+        counter++;
+    }
+    startRow++;
+    for (let j = startRow; j <= endRow; j++) {
+        result[j][endCol] = counter;
+        counter++;
+    }
 
+    endCol--;
+
+    for (let i = endCol; i >= startCol; i--) {
+        result[endRow][i] = counter;
+        counter++;
+    }
+
+    endRow--;
+    for (let i = endRow; i >= startRow; i--) {
+        result[i][startCol] = counter;
+        counter++;
+    }
+
+    startCol++;
+
+}
+
+return result;
+  
 };
 
 
