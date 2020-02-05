@@ -1,35 +1,23 @@
-import React from "react";
-/*import logo from './logo.svg';*/
-import ReactDOM from 'react-dom';
-import './Button.css';
+import React from 'react';
+import logo from './logo.svg';
+import './App.css';
+import Button from "./components/button/Button.js";
 
-class Button extends React.Component {
-
-  constructor(props) {
-    super(props);
-     this.state={isToggle: false};
-    this.handleClick = this.handleClick.bind(this);
-   
+  function App() {
+    return (
+      <div className="App">
+      
+        <header className="App-header">
+          <img src={logo} className="App-logo" alt="logo" />
+          <Button/>
+          
+          <a className="App-link">
+            Learn React
+          </a>
+        </header>
+     
+      </div>
+    );
   }
 
-  handleClick() {
-     this.setState((oldState) => ({
-      isToggle: ! oldState.isToggle
-    }));
-  }
-
-  render() {
-  return (
-    <div className="App">
-	  <button
-	  onClick={this.handleClick}
-	  className= {this.state.isToggle ? 'toggled' : 'untoggled' }>
-	  {this.state.isToggle ? 'toggled' : 'untoggled'}
-	  </button>
-    </div>
-  );
-}
-
-}
-
-export default Button;
+export default App;
