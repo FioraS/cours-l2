@@ -1,5 +1,8 @@
 import React from 'react';
-import { render } from '@testing-library/react';
+import ReactDOM from 'react-dom';
+import { render, unmountComponentAtNode } from 'react-dom';
+import { act } from 'react-dom/test-utils';
+import { test, expect } from 'jest'
 import App from './App';
 
 test('renders learn react link', () => {
@@ -25,5 +28,5 @@ it('renders without crashing', () => {
   act( () => {
     render(<App></App>, container);
   });
-  expect((document.querySelector("[className='title']")).textContent).not.toMatch("")
+  expect((document.querySelector("[class='title']")).textContent).not.toMatch("")
 });
