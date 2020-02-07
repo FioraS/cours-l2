@@ -21,7 +21,7 @@ afterEach( () => {
 
 it('renders without crashing', () => {
   act( () => {
-    render(<BtnInfo></BtnInfo>, container);
+    render(<App></App>, container);
   });
   expect((document.querySelector("[className='title']")).textContent).not.toMatch("")
 
