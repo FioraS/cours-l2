@@ -8,6 +8,7 @@ test('renders learn react link', () => {
   expect(linkElement).toBeInTheDocument();
 });
 
+let container = null;
 
 beforeEach( () => {
   container = document.createElement("div");
@@ -17,6 +18,7 @@ beforeEach( () => {
 afterEach( () => {
   unmountComponentAtNode(container);
   container.remove();
+  container = null;
 });
 
 it('renders without crashing', () => {
@@ -24,6 +26,4 @@ it('renders without crashing', () => {
     render(<App></App>, container);
   });
   expect((document.querySelector("[className='title']")).textContent).not.toMatch("")
-
-
 });
