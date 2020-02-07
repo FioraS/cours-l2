@@ -23,7 +23,7 @@ it('renders without crashing', () => {
   act( () => {
     render(<BtnInfo></BtnInfo>, container);
   });
-  expect((document.querySelector("[data-testId='btnInfo']")).textContent).toMatch("Plus d'information")
+  expect((document.querySelector("[className='title']")).textContent).not.toMatch("")
 
 
 });
