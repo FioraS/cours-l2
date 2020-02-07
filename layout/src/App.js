@@ -35,7 +35,7 @@ class App extends React.Component{
           <div class="card m-5">
             <img class="card-img-top" src="..." alt="Card image cap" />
             <div class="card-body text-dark">
-              <h5 class="card-title">{post.name}</h5>
+              <h5 class="card-title title">{post.name}</h5>
               <p class="card-text">{post.age}</p>
               <p class="card-text">{post.genre}</p>
               <a href="#" class="btn btn-primary">En savoir plus</a>
